@@ -1,6 +1,6 @@
 # Is a 7.3% budget overrun under control?
 
-A Power BI dashboard that tracks 104 IT and marketing projects for an oral care company in 52 countries on costs, delays and deliverables, for three levels of directors, and a second look at what the data really says.
+A Power BI dashboard that tracks 104 IT and marketing projects for an oral care company in 52 countries on costs, delays and deliverables, for three levels of directors.
 
 **Read the case study:** https://axeldrtdata.github.io/works/sanitoral-powerbi-dashboard/
 
@@ -33,20 +33,14 @@ Slicers (project, type, region, country, period) are synced across pages, Row-Le
 | Delays | 8 critical, 16 slightly late, 80 ahead of plan |
 | Deliverables | 89.5% of planned deliverables delivered; 9 critical, 94 slightly under, 1 complete |
 
-### A second look at the data
+### Beyond the percentages
 
-When I came back to this project for my portfolio, I recomputed every figure from the model's tables (`analysis/second_look.py`). They all held, but three conclusions changed:
-
-- **Percent against euros.** The five worst projects in % are mostly IT, but the five largest overruns in euros are all marketing projects: a marketing project was planned at €986,000 on average, an IT project at €93,000.
-- **IT's good health sits in one phase.** Testing cost five times its plan and overran in all 52 IT projects; Deployment came in under plan in 46 of them, leaving €1.3M unspent. Without Deployment, IT would be 61% over budget.
-- **Delays do not predict costs.** 7 of the 8 critically late projects were over budget, but so were 54 of the 96 others; Spearman's ρ between the two gaps is −0.01.
+**IT's good health sits in a single phase.** Overall, IT projects cost €362,000 less than planned. But the waterfall chart on the Costs page shows where that result comes from: Testing cost €769,000 more than planned, and Deployment, €1.3M under its budget, makes up for it. Even the five most profitable projects of the Top 5 overran on Testing. Either the Testing budget is underestimated from the start, or an operational problem keeps recurring in that phase.
 
 ## Repository structure
 
 ```
 sanitoral-powerbi-dashboard/
-├── analysis/
-│   └── second_look.py                # recomputes the key figures and the three checks
 ├── dashboard/
 │   └── sanitoral_powerbi_dashboard.pbix
 ├── data/                             # the seven tables of the model, exported as CSV
@@ -62,20 +56,12 @@ sanitoral-powerbi-dashboard/
 │   ├── data-model.md                 # relationships, composite key, Row-Level Security
 │   └── user-stories.md               # the Product Strategy Canvas
 ├── images/
-├── requirements.txt
 └── README.md
 ```
 
 ## How to open it
 
-1. **The dashboard** needs Power BI Desktop (Windows). Open `dashboard/sanitoral_powerbi_dashboard.pbix`: the data is imported in the file, so it opens without the source workbook. To point it to a new workbook with the same sheets: *Transform data → Data source settings → Change source*, then *Close & Apply*.
-2. **The checks** run in Python:
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   pip install -r requirements.txt
-   python analysis/second_look.py
-   ```
+The dashboard needs Power BI Desktop (Windows). Open `dashboard/sanitoral_powerbi_dashboard.pbix`: the data is imported in the file, so it opens without the source workbook. To point it to a new workbook with the same sheets: *Transform data → Data source settings → Change source*, then *Close & Apply*.
 
 ## Limits
 
@@ -86,7 +72,7 @@ sanitoral-powerbi-dashboard/
 
 ## Stack
 
-Power BI · DAX · Power Query · Excel · Python (checks)
+Power BI · DAX · Power Query · Excel
 
 ## Data sources
 
