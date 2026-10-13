@@ -80,7 +80,7 @@ One Excel workbook provided by OpenClassrooms for the Data Analyst path: project
 
 ## Note on the language
 
-This project was built in French in April 2026 as part of my OpenClassrooms Data Analyst training. The report, its measures and the source data stay in French; this README, the documentation and the analysis script were written in English for my portfolio in October 2026.
+This project was built in French in April 2026 as part of my OpenClassrooms Data Analyst training. The report, its measures and the source data stay in French; this README and the documentation were written in English for my portfolio in October 2026.
 
 ---
 
